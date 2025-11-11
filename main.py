@@ -256,8 +256,8 @@ def build_and_evaluate_models(df):
 
     # ===== 保存模型 =====
     for name, model in models.items():
-        joblib.dump(model, f"{name.lower().replace(' ', '_')}..pkl")
-    print("模型已保存：decision_tree..pkl, svm..pkl, random_forest..pkl")
+        joblib.dump(model, f"{name.lower().replace(' ', '_')}.pkl")
+    print("模型已保存：decision_tree.pkl, svm.pkl, random_forest.pkl")
 
     # ===== 新数据预测示例 =====
     print("\n===== 新样本预测示例 =====")
