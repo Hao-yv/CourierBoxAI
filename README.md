@@ -1,3 +1,4 @@
+
 # CourierBoxAI — 空气质量等级分类项目
 
 本项目使用 Python 完成空气质量数据的清洗、特征工程、探索性分析与可视化，并基于决策树、SVM 与随机森林构建分类模型，输出评估指标与混淆矩阵图，并持久化模型文件以便复用。
@@ -70,7 +71,7 @@ python main.py
   - `boxplot.png`、`heatmap.png`、`pairplot.png`（历史探索图）
   - `决策树_confusion_matrix.png`、`svm_confusion_matrix.png`、`randomforest_confusion_matrix.png`（最新混淆矩阵）
   - `cm_dt.png`、`cm_svm.png`（历史混淆矩阵）
-- `temp/`：模型持久化文件（`.pkl`）
+- `pkl/`：模型持久化文件（`.pkl`）
   - `decision_tree.pkl`、`svm.pkl`、`randomforest.pkl`、`决策树.pkl`
 - `main.py`：主流程脚本
 - `metrics.md`：评估指标（历史版本，最新指标以控制台输出为准）
@@ -82,7 +83,7 @@ python main.py
 
 - 图像输出（自动保存到 `image/`）：
   - 标签分布、相关性热力图、三种模型的混淆矩阵
-- 模型文件（保存到 `temp/`）：
+- 模型文件（保存到 `pkl/`）：
   - `decision_tree.pkl`、`svm.pkl`、`randomforest.pkl`
 - 指标文件：
   - `metrics.md`（早期版本记录；最新运行的评估指标已在控制台打印）
@@ -110,7 +111,7 @@ print(model.predict(X_sample))
 
 - 评估数值可能随数据处理与参数搜索略有变化；请以“最近一次控制台输出”为准。
 - 若出现类不平衡（如“优”样本极少），代码内已使用 SMOTE 过采样；仍建议补充样本与进行更细致的调参。
-- 生成图像与模型的保存路径已统一到 `image/` 与 `temp/`，如需变更请在 `main.py` 中调整。
+- 生成图像与模型的保存路径已统一到 `image/` 与 `pkl/`，如需变更请在 `main.py` 中调整。
 
 ---
 
@@ -118,7 +119,7 @@ print(model.predict(X_sample))
 
 - Kaggle: Air Quality Dataset[https://www.kaggle.com/datasets/hanwizardhanwizard/polling]
 - scikit-learn / imbalanced-learn 文档
-- 本项目将上传GitHub仓库：[https://github.com/yourusername/CourierBoxAI](https://github.com/yourusername/CourierBoxAI)
+- 本项目现已上传GitHub仓库：[https://github.com/Hao-yv/CourierBoxAI](https://github.com/Hao-yv/CourierBoxAI)
 
 
 
