@@ -1,7 +1,7 @@
 [project]
 name = "courierboxai"
 version = "0.1.0"
-description = "Add your description here"
+description = "22级计科班大数据期末课设"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
