@@ -92,14 +92,15 @@ python main.py
 ## 复用已训练模型（示例）
 
 - 加载决策树模型并进行预测（示例）
+
 ```python
 from joblib import load
 import numpy as np
 
-model = load(r"pkl\decision_tree.pkl")
+model = load(r".pkl\decision_tree.pkl")
 # 示例：与训练一致的特征顺序（请根据实际特征列顺序构造输入）
 # ['AQI','PM2.5','PM10','CO','SO2','NO2','O3','PM_ratio','AQI_PM_interaction']
-X_sample = np.array([[90, 45, 85, 0.65, 4, 36, 134, 45/85, 90*45]])
+X_sample = np.array([[90, 45, 85, 0.65, 4, 36, 134, 45 / 85, 90 * 45]])
 print(model.predict(X_sample))
 ```
 

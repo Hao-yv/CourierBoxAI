@@ -9,7 +9,7 @@ import shutil
 from pathlib import Path
 
 
-def classify_and_move_files(source_dir=".", temp_dir="temp", image_dir="image", pkl_dir="pkl"):
+def classify_and_move_files(source_dir=".", temp_dir="temp", image_dir="image", pkl_dir=".pkl"):
     """
     对源目录中的文件进行分类处理：
     - 临时文件（扩展名以 .tmp, .temp, .log 等结尾）移动到 temp/ 文件夹
@@ -29,7 +29,7 @@ def classify_and_move_files(source_dir=".", temp_dir="temp", image_dir="image", 
     # 定义文件类型映射（可扩展）
     temp_extensions = {'.tmp', '.temp', '.log', '.cache', '.bak'}  # 临时文件扩展名
     image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp'}  # 图片扩展名
-    pkl_extensions = {'.pkl', '.pkl'}
+    pkl_extensions = {'..pkl', '..pkl'}
 
     # 遍历源目录中的所有文件
     for file_path in Path(source_dir).iterdir():
