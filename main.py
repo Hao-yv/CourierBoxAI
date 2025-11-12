@@ -7,6 +7,8 @@
 
 import pandas as pd
 import os
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
@@ -28,7 +30,7 @@ import numpy as np
 from pandas.api.types import is_numeric_dtype
 from imblearn.over_sampling import SMOTE  # 添加SMOTE处理不平衡
 
-from move import classify_and_move_files
+ 
 
 # 忽略sklearn警告
 warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
@@ -124,8 +126,7 @@ def visualize_data(df):
         df["质量等级"].value_counts().plot(kind="bar")
         plt.title("空气质量等级分布")
         plt.tight_layout()
-        plt.savefig("quality_dist.png")
-        plt.show()
+        plt.savefig("image/quality_dist.png")
 
     # 相关性热力图（无日期列，跳过时间序列）
     numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
@@ -133,8 +134,7 @@ def visualize_data(df):
     sns.heatmap(df[numeric_cols].corr(), annot=True, cmap='coolwarm', center=0)
     plt.title("污染物相关性热力图")
     plt.tight_layout()
-    plt.savefig("corr_heatmap.png")
-    plt.show()
+    plt.savefig("image/corr_heatmap.png")
 
 
 def select_features_and_label(df):
@@ -167,8 +167,7 @@ def plot_confusion_matrix(y_true, y_pred, name):
     plt.title(f'{name} 混淆矩阵')
     plt.ylabel('真实标签')
     plt.xlabel('预测标签')
-    plt.savefig(f"{name.lower().replace(' ', '_')}_confusion_matrix.png")
-    plt.show()
+    plt.savefig(f"image/{name.lower().replace(' ', '_')}_confusion_matrix.png")
 
 
 def compute_roc_auc(y_true, model, X, name):
@@ -256,8 +255,8 @@ def build_and_evaluate_models(df):
 
     # ===== 保存模型 =====
     for name, model in models.items():
-        joblib.dump(model, f"{name.lower().replace(' ', '_')}.pkl")
-    print("模型已保存：decision_tree.pkl, svm.pkl, random_forest.pkl")
+        joblib.dump(model, f"pkl/{name.lower().replace(' ', '_')}.pkl")
+    print("模型已保存：决策树.pkl, svm.pkl, randomforest.pkl")
 
     # ===== 新数据预测示例 =====
     print("\n===== 新样本预测示例 =====")
@@ -270,6 +269,8 @@ def build_and_evaluate_models(df):
 
 def main():
     print("空气质量统计项目启动...")
+    os.makedirs('image', exist_ok=True)
+    os.makedirs('pkl', exist_ok=True)
     df = load_and_explore_data()
     if df is not None:
         df = preprocess_data(df)
@@ -277,7 +278,7 @@ def main():
         visualize_data(df)
         build_and_evaluate_models(df)
 
-    classify_and_move_files()
+ 
 
 
 if __name__ == "__main__":
