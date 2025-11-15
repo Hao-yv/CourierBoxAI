@@ -40,7 +40,7 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 1000)
 
 # Kaggle 数据来源信息（报告需要）
-DATA_SOURCE = "本项目数据集来源：Kaggle 空气质量监测公开数据集（Air Quality Dataset）。"
+DATA_SOURCE = "本项目数据集来源：Kaggle 'Polling'（中国空气质量检测），作者：HanWizard，链接： `https://www.kaggle.com/datasets/hanwizardhanwizard/polling` "
 
 
 def load_and_explore_data(file_path='data/.xls'):
